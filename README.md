@@ -63,6 +63,7 @@ src/
 ### Step 2 — Read the story and rules
 
 Each file has a detailed JSDoc comment at the top that explains:
+
 - The **story** (a real-world scenario)
 - The **rules** your function must follow
 - The **parameters** and **return values**
@@ -81,7 +82,7 @@ export function getTicketPrice(age, isWeekend) {
 
 // After (example)
 export function getTicketPrice(age, isWeekend) {
-  if (typeof age !== 'number' || age < 0) return -1;
+  if (typeof age !== "number" || age < 0) return -1;
 
   let price;
   if (age <= 12) {
@@ -94,6 +95,25 @@ export function getTicketPrice(age, isWeekend) {
 
 ### Step 4 — Run the test for that challenge
 
+```bash
+npm test -- 01-ticket
+```
+
+#### still we will get the error due to cross platform environment
+
+```bash
+npm i cross-env
+```
+
+#### open the package.json
+
+```json
+"scripts": {
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "test:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watchAll"
+  },
+```
+#### now run those test
 ```bash
 npm test -- 01-ticket
 ```
@@ -133,20 +153,20 @@ This re-runs tests every time you save a file — very handy while working.
 
 ## Challenges
 
-| #  | File | Story | Concepts | Points |
-|----|------|-------|----------|--------|
-| 01 | `01-ticket-pricing.js` | Starlight Cinema | `if/else if`, age ranges, boolean flag | 8 |
-| 02 | `02-traffic-light.js` | SafeDrive Simulator | `switch` statement, case-insensitivity | 8 |
-| 03 | `03-grade-calculator.js` | Ms. Parker's Report Cards | `if/else if` chain, bonus logic, validation | 8 |
-| 04 | `04-weather-advice.js` | TrailBuddy Hiking App | Nested conditions, temperature + boolean | 8 |
-| 05 | `05-library-card.js` | Maple Town Library | Logical operators (`&&`), returning objects | 8 |
-| 06 | `06-shipping-calculator.js` | ShopSwift Online Store | Multiple factors, free shipping threshold | 9 |
-| 07 | `07-coffee-shop.js` | Bean & Brew Cafe | `switch` + `if`, default parameters | 9 |
-| 08 | `08-tax-calculator.js` | Sam's Freelance Taxes | Progressive brackets, math + conditionals | 9 |
-| 09 | `09-password-strength.js` | SecureApp Signup | Multiple criteria checks, counting conditions | 9 |
-| 10 | `10-tip-calculator.js` | TipEasy Restaurant App | Rating mapping, rounding, returning objects | 8 |
-| 11 | `11-parking-fee.js` | City Central Parking | `Math.ceil`, rate tiers, daily cap | 9 |
-| 12 | `12-season-activity.js` | WanderLust Travel Planner | Two-step logic (season → activity), compound conditions | 8 |
+| #   | File                        | Story                     | Concepts                                                | Points |
+| --- | --------------------------- | ------------------------- | ------------------------------------------------------- | ------ |
+| 01  | `01-ticket-pricing.js`      | Starlight Cinema          | `if/else if`, age ranges, boolean flag                  | 8      |
+| 02  | `02-traffic-light.js`       | SafeDrive Simulator       | `switch` statement, case-insensitivity                  | 8      |
+| 03  | `03-grade-calculator.js`    | Ms. Parker's Report Cards | `if/else if` chain, bonus logic, validation             | 8      |
+| 04  | `04-weather-advice.js`      | TrailBuddy Hiking App     | Nested conditions, temperature + boolean                | 8      |
+| 05  | `05-library-card.js`        | Maple Town Library        | Logical operators (`&&`), returning objects             | 8      |
+| 06  | `06-shipping-calculator.js` | ShopSwift Online Store    | Multiple factors, free shipping threshold               | 9      |
+| 07  | `07-coffee-shop.js`         | Bean & Brew Cafe          | `switch` + `if`, default parameters                     | 9      |
+| 08  | `08-tax-calculator.js`      | Sam's Freelance Taxes     | Progressive brackets, math + conditionals               | 9      |
+| 09  | `09-password-strength.js`   | SecureApp Signup          | Multiple criteria checks, counting conditions           | 9      |
+| 10  | `10-tip-calculator.js`      | TipEasy Restaurant App    | Rating mapping, rounding, returning objects             | 8      |
+| 11  | `11-parking-fee.js`         | City Central Parking      | `Math.ceil`, rate tiers, daily cap                      | 9      |
+| 12  | `12-season-activity.js`     | WanderLust Travel Planner | Two-step logic (season → activity), compound conditions | 8      |
 
 ---
 
@@ -223,13 +243,13 @@ You can push again to improve your score — GitHub Classroom will always use th
 
 ## Troubleshooting
 
-| Problem | Solution |
-|---------|----------|
-| `npm test` shows "command not found" | Run `npm install` first |
-| All tests fail with `undefined` | You haven't written your solution yet — that's expected |
+| Problem                               | Solution                                                           |
+| ------------------------------------- | ------------------------------------------------------------------ |
+| `npm test` shows "command not found"  | Run `npm install` first                                            |
+| All tests fail with `undefined`       | You haven't written your solution yet — that's expected            |
 | Tests say "expected X but received Y" | Your logic is close but not matching the rules — re-read the JSDoc |
-| `git push` is rejected | Run `git pull origin main` first, then push again |
-| Tests pass locally but fail on GitHub | Make sure you pushed all your changes (`git status` to check) |
+| `git push` is rejected                | Run `git pull origin main` first, then push again                  |
+| Tests pass locally but fail on GitHub | Make sure you pushed all your changes (`git status` to check)      |
 
 ---
 
